@@ -10,7 +10,7 @@
     "sinon-as-promised": "^4.0.0"
   },
   "devDependencies": {
-    "code": "^3.0.0",
+    "code": "^1.0.0",
     "istanbul": "^0.4.3",
     "mocha": "^2.5.3"
   },
