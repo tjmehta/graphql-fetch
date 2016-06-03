@@ -1,0 +1,38 @@
+{
+  "name": "graphql-fetch",
+  "version": "0.0.0",
+  "description": "Thin GraphQL client powered by fetch",
+  "main": "index.js",
+  "dependencies": {
+    "101": "^1.5.0",
+    "isomorphic-fetch": "^2.2.1",
+    "sinon": "^1.17.4",
+    "sinon-as-promised": "^4.0.0"
+  },
+  "devDependencies": {
+    "code": "^1.0.0",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.5.3"
+  },
+  "scripts": {
+    "test": "istanbul cover _mocha ./test && istanbul --text check-coverage --statements 100 --functions 100 --branches 100 --lines 100"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tjmehta/graphql-fetch.git"
+  },
+  "keywords": [
+    "graphql",
+    "client",
+    "fetch",
+    "request",
+    "query",
+    "mutation"
+  ],
+  "author": "Tejesh Mehta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjmehta/graphql-fetch/issues"
+  },
+  "homepage": "https://github.com/tjmehta/graphql-fetch"
+}
