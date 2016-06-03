@@ -24,11 +24,7 @@ describe('graphql-fetch', function () {
       json: sinon.stub().returns(this.json)
     }
     sinon.stub(global, 'fetch').resolves(this.result)
-    this.query = `query {
-      user {
-        username
-      }
-    }`
+    this.query = "query { user { username } }"
     this.vars = { foo: 1 }
     this.headers = new Headers()
     this.headers.append('authorization', 'token abcdef')
