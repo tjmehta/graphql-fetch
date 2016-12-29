@@ -5,14 +5,14 @@
   "main": "index.js",
   "dependencies": {
     "101": "^1.5.0",
-    "isomorphic-fetch": "^2.2.1",
-    "sinon": "^1.17.4",
-    "sinon-as-promised": "^4.0.0"
+    "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
     "code": "^1.0.0",
     "istanbul": "^0.4.3",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.4",
+    "sinon-as-promised": "^4.0.0"
   },
   "scripts": {
     "test": "istanbul cover _mocha ./test && istanbul --text check-coverage --statements 100 --functions 100 --branches 100 --lines 100"
