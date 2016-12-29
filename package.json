@@ -1,6 +1,6 @@
 {
   "name": "graphql-fetch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Thin GraphQL client powered by fetch",
   "main": "index.js",
   "dependencies": {
