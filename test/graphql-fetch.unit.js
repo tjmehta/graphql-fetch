@@ -26,6 +26,7 @@ describe('graphql-fetch', function () {
     sinon.stub(global, 'fetch').resolves(this.result)
     this.query = "query { user { username } }"
     this.vars = { foo: 1 }
+    this.operationName = "bar"
     this.headers = new Headers()
     this.headers.append('authorization', 'token abcdef')
     this.headers.append('content-type', 'text/html')
@@ -47,8 +48,7 @@ describe('graphql-fetch', function () {
       expect(result).to.equal(self.json)
       function assertOpts (opts) {
         expect(opts.body).to.equal(JSON.stringify({
-          query: self.query,
-          variables: {}
+          query: self.query
         }))
         expect(opts.method).to.equal('POST')
         expect(opts.headers).to.be.an.instanceOf(Headers)
@@ -57,9 +57,9 @@ describe('graphql-fetch', function () {
       }
     })
   })
-  it('should make a graphql request w/ vars and fetch options', function () {
+  it('should make a graphql request w/ vars, fetch options and operation name', function () {
     var self = this
-    return graphqlFetch(this.query, this.vars, this.opts).then(function (result) {
+    return graphqlFetch(this.query, this.vars, this.opts, this.operationName).then(function (result) {
       sinon.assert.calledOnce(global.fetch)
       sinon.assert.calledWith(global.fetch, graphqlUrl, sinon.match(assertOpts))
       sinon.assert.calledOnce(self.result.json)
@@ -67,7 +67,8 @@ describe('graphql-fetch', function () {
       function assertOpts (opts) {
         expect(opts.body).to.equal(JSON.stringify({
           query: self.query,
-          variables: self.vars
+          variables: self.vars,
+          operationName: self.operationName
         }))
         expect(opts.method).to.equal('POST')
         expect(opts.headers).to.equal(self.headers)

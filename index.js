@@ -15,16 +15,22 @@ module.exports = function factory (graphqlUrl) {
    * @param  {Query} query graphql query
    * @param  {Object} vars  graphql query args
    * @param  {Object} opts  fetch options
+   * @param  {String} operationName  graphql operation name
    * @return {FetchPromise} fetch promise
    */
-  return function graphqlFetch (query, vars, opts) {
+  return function graphqlFetch (query, vars, opts, operationName) {
     assert(query, 'query is required')
-    vars = vars || {}
     opts = opts || {}
-    opts.body = JSON.stringify({
-      query: query,
-      variables: vars
-    })
+    var body = {
+      query: query
+    }
+    if (vars) {
+      body.variables = vars
+    }
+    if (operationName) {
+      body.operationName = operationName
+    }
+    opts.body = JSON.stringify(body)
     // default opts
     defaults(opts, {
       method: 'POST',
